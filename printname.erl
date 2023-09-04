@@ -5,7 +5,8 @@
          summation/1, 
          factorial/1, 
          fact/1, 
-         reverse/1]).
+         reverse/1, 
+         palindrome/1]).
 
 print_name(_, 0)    -> ok;
 print_name(Name, N) -> io:format("~s~n", [Name]),
@@ -34,3 +35,6 @@ fact(N) -> N * fact(N-1).
 reverse(List)         -> reverse(List, []).
 reverse([], Acc)      -> Acc;
 reverse([H | T], Acc) -> reverse(T, [H | Acc]).
+
+palindrome(Value) -> R = lists:reverse(Value),
+                     Value == R.
