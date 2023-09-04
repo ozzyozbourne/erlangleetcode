@@ -4,7 +4,8 @@
          print_linearly_from_n_to_1/1, 
          summation/1, 
          factorial/1, 
-         fact/1]).
+         fact/1, 
+         reverse/1]).
 
 print_name(_, 0)    -> ok;
 print_name(Name, N) -> io:format("~s~n", [Name]),
@@ -29,4 +30,7 @@ factorial(N, Acc) -> factorial(N-1, Acc * N).
 
 fact(1) -> 1;
 fact(N) -> N * fact(N-1).
-           
+
+reverse(List)         -> reverse(List, []).
+reverse([], Acc)      -> Acc;
+reverse([H | T], Acc) -> reverse(T, [H | Acc]).
