@@ -2,11 +2,13 @@
 -export([print_name/2, 
          print_linearly_from_1_to_n/1, 
          print_linearly_from_n_to_1/1, 
-         summation/1, 
-         factorial/1, 
-         fact/1, 
-         reverse/1, 
-         palindrome/1]).
+         summation/1, factorial/1, 
+         fact/1, reverse/1, 
+         palindrome/1, fibonacci/1]).
+
+fibonacci(0) -> 0;
+fibonacci(1) -> 1;
+fibonacci(N) -> fibonacci(N-1) + fibonacci(N-2).
 
 print_name(_, 0)    -> ok;
 print_name(Name, N) -> io:format("~s~n", [Name]),
