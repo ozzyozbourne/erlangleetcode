@@ -6,7 +6,19 @@
          fact/1, reverse/1, 
          palindrome/1, fibonacci/1, 
          subsequence/1, subseq/1, 
-         is_subsequence/2, two_sum/2]).
+         is_subsequence/2, two_sum/2, 
+         two_sum_two/2]).
+
+
+-spec two_sum_two(Nums :: [integer()], Target :: integer()) -> [integer()].
+two_sum_two(Nums, Target) -> 
+    Asc = lists:zip(lists:seq(1, length(Nums)), Nums),
+    Dsc = lists:reverse(Asc),
+    find(Asc, Dsc, Target).
+
+find([{_, X}  | Asc],     [{_, Y}  | _] = Dsc, T) when X + Y < T -> find(Asc, Dsc, T);
+find([{_, X}  | _] = Asc, [{_, Y}  | Dsc],     T) when X + Y > T -> find(Asc, Dsc, T);
+find([{Xi, _} | _],       [{Yi, _} | _],      _)                 -> [Xi, Yi].
 
 
 -spec two_sum(Nums :: [integer()], Target :: integer()) -> [integer()].
