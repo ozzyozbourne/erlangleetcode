@@ -5,8 +5,15 @@
          summation/1, factorial/1, 
          fact/1, reverse/1, 
          palindrome/1, fibonacci/1, 
-         subsequence/1, subseq/1]).
+         subsequence/1, subseq/1, 
+         is_subsequence/2, two_sum/2]).
 
+
+-spec two_sum(Nums :: [integer()], Target :: integer()) -> [integer()].
+two_sum(Nums, Target) ->
+    N = lists:zip(lists:seq(0, length(Nums)-1), Nums), 
+    R = [[Xi, Yi] || {Xi, X} <- N, {Yi, Y} <- N -- [{Xi, X}], X + Y =:= Target],
+    hd(R).
 
 -spec is_subsequence(S :: unicode:unicode_binary(), T :: unicode:unicode_binary()) -> boolean().
 is_subsequence(S, T) -> lists:member(unicode:characters_to_list(S), subseq(unicode:characters_to_list(T))).
