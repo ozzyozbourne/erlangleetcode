@@ -7,8 +7,11 @@
          palindrome/1, fibonacci/1, 
          subsequence/1, subseq/1, 
          is_subsequence/2, two_sum/2, 
-         two_sum_two/2]).
+         two_sum_two/2, missing_number/1]).
 
+-spec missing_number(Nums :: [integer()]) -> integer().
+missing_number(Nums) -> A = lists:seq(0, length(Nums)), 
+                        lists:sum(A) - lists:sum(Nums).
 
 -spec two_sum_two(Nums :: [integer()], Target :: integer()) -> [integer()].
 two_sum_two(Nums, Target) -> 
