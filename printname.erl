@@ -9,6 +9,8 @@
          is_subsequence/2, two_sum/2, 
          two_sum_two/2, missing_number/1, single_number/1]).
 
+
+
 -spec single_number(Nums :: [integer()]) -> integer().
 single_number(Nums) -> lists:foldl(fun(X, Acc) -> X bxor Acc end, 0, Nums).
 
